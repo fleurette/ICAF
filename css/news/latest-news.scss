@@ -1,4 +1,4 @@
-@use "../icaf-colors" as *;
+@use "../icaf-colors"as *;
 
 @use "../icaf-general";
 @use "../icaf-nav";
@@ -14,7 +14,7 @@
   line-height: 19px;
   color: #939393;
 }
-  
+
 .title {
   width: 363px;
   height: 55px;
@@ -25,95 +25,132 @@
   line-height: 55px;
   color: $ICAF_BLUE;
 }
-.sections {
-        
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 33px;
-    max-width: 1440px;
 
-       
-    &.last {
-        margin-bottom: 280px;
-    }
+.sections {
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+  max-width: 1440px;
+
+
+  &.last {
+    margin-bottom: 280px;
+  }
 }
 
 .section-titles {
-    margin-top: 60px;
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 49px;
-    color: $ICAF_BLUE;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 49px;
+  color: $ICAF_BLUE;
 }
+
 .content {
   margin: 80px 125px auto 125px;
 
 }
-.magazine-container {
-    margin-top: 4px;
-    .swiper {
-      margin-top: 10px;
-      width: 1440px;
-      height: 542px;
-      .swiper-slide {
-        width: 768px;
-      height: 352px;
-      }
-      img {
-        display: block;
-        width: 10%;
-        height: 10%;
-        object-fit: cover;
-      }
-      .swiper-navBtn {
-        height: 24px;
-        width: 24px;
-        margin-top: 10px;
-        color: $ICAF_WHITE;
-        background-color: $ICAF_BLUE;
-        border-radius: 50%;
-        transition: color 0.3s ease;
-      }
-      .swiper-navBtn:hover {
-        color: $ICAF_WHITE;
-      }
-      .swiper-navBtn::before,
-      .swiper-navBtn::after {
-        font-size: 10px;
-      }
-      .swiper-button-next {
-        margin-right: 10px;
-        align-items: center;
-      }
-      .swiper-button-prev {
-        margin-left: 10px;
-        align-items: center;
-      }
-    }
-    .swiper-pagination {
-      position: absolute;
-      margin-top: 10px;
-      .swiper-pagination-bullet {
-        width: 11px;
-        height: 11px;
-        margin: 10px;
-        background-color: $ICAF_GRAY;
-        opacity: 0.2;
-      }
-      .swiper-pagination-bullet-active {
-        background-color: $ICAF_YELLOW;
-        opacity: 1;
-      }
-      @media screen and (max-width: 768px) {
-        .swiper-slide {
-          margin: 0 10px;
-        }
-        .swiper-navBtn {
-          display: none;
-        }
-      }
-    }
-  }
 
-  
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+
+
+div.item {
+  position: absolute;
+
+
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+
+}
+
+div.item:nth-of-type(2) {
+  --offset: 2;
+
+}
+
+div.item:nth-of-type(3) {
+  --offset: 3;
+
+}
+
+div.item:nth-of-type(4) {
+  --offset: 4;
+
+}
+
+div.item:nth-of-type(5) {
+  --offset: 5;
+
+}
+
+
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(1):checked~main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(2):checked~main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(3):checked~main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(4):checked~main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(5):checked~main#carousel {
+  --position: 5;
+}
