@@ -53,102 +53,73 @@
 
 }
 
-main#carousel {
-  grid-row: 1 / 2;
-  grid-column: 1 / 8;
+.pic-ctn {
   width: 100vw;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 600px;
-  --items: 5;
-  --middle: 3;
-  --position: 1;
-  pointer-events: none;
+  height: 200px;
 }
 
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
 
-div.item {
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+  position: relative;
+  width: 100vw;
+  height: 300px;
+  margin-top: 15vh;
+}
+
+.pic-ctn>img {
   position: absolute;
-
-
-  --r: calc(var(--position) - var(--offset));
-  --abs: max(calc(var(--r) * -1), var(--r));
-  transition: all 0.25s linear;
-  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
-  z-index: calc((var(--position) - var(--abs)));
+  top: 0;
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 12s infinite;
 }
 
-
-div.item:nth-of-type(1) {
-  --offset: 1;
-
+img:nth-child(2) {
+  animation-delay: 2s;
 }
 
-div.item:nth-of-type(2) {
-  --offset: 2;
-
+img:nth-child(3) {
+  animation-delay: 4s;
 }
 
-div.item:nth-of-type(3) {
-  --offset: 3;
-
+img:nth-child(4) {
+  animation-delay: 6s;
 }
 
-div.item:nth-of-type(4) {
-  --offset: 4;
-
+img:nth-child(5) {
+  animation-delay: 8s;
 }
 
-div.item:nth-of-type(5) {
-  --offset: 5;
-
+img:nth-child(6) {
+  animation-delay: 10s;
 }
 
-input:nth-of-type(1) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-input:nth-of-type(1):checked~main#carousel {
-  --position: 1;
-}
-
-input:nth-of-type(2) {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-
-input:nth-of-type(2):checked~main#carousel {
-  --position: 2;
-}
-
-input:nth-of-type(3) {
-  grid-column: 4 /5;
-  grid-row: 2 / 3;
-}
-
-input:nth-of-type(3):checked~main#carousel {
-  --position: 3;
-}
-
-input:nth-of-type(4) {
-  grid-column: 5 / 6;
-  grid-row: 2 / 3;
-}
-
-input:nth-of-type(4):checked~main#carousel {
-  --position: 4;
-}
-
-input:nth-of-type(5) {
-  grid-column: 6 / 7;
-  grid-row: 2 / 3;
-}
-
-input:nth-of-type(5):checked~main#carousel {
-  --position: 5;
+img:nth-child(7) {
+  animation-delay: 12s;
 }
