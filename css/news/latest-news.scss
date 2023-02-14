@@ -25,6 +25,9 @@
   line-height: 55px;
   color: $ICAF_BLUE;
 }
+.content{
+  
+  margin: 80px 125px 0 125px;
 
 .sections {
 
@@ -32,11 +35,10 @@
   font-size: 24px;
   line-height: 33px;
   max-width: 1440px;
+  align-items: center;
 
 
-  &.last {
-    margin-bottom: 280px;
-  }
+  
 }
 
 .section-titles {
@@ -48,78 +50,76 @@
   color: $ICAF_BLUE;
 }
 
-.content {
-  margin: 80px 125px auto 125px;
 
+  
+
+
+
+
+.swiper {
+  margin-top: 20px;
+  width: 1220px;
+  height: 142px;
+  background-color: E7ECF2;
+  .swiper-slide {
+    width: 142px;
+    
+    
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    
+  }
+  .swiper-navBtn {
+    height: 34px;
+    width: 34px;
+    margin-top: 0px;
+    color: $ICAF_WHITE;
+    background-color: $ICAF_BLUE;
+    border-radius: 50%;
+    transition: color 0.3s ease;
+  }
+  .swiper-navBtn:hover {
+    color: $ICAF_WHITE;
+  }
+  .swiper-navBtn::before,
+  .swiper-navBtn::after {
+    font-size: 30px;
+  }
+  .swiper-button-next {
+    margin-right: 50px;
+    align-items: center;
+  }
+  .swiper-button-prev {
+    margin-left: 50px;
+    align-items: center;
+  }
 }
-
-.pic-ctn {
-  width: 100vw;
-  height: 200px;
-}
-
-@keyframes display {
-  0% {
-    transform: translateX(200px);
-    opacity: 0;
-  }
-
-  10% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  20% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  30% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-}
-
-.pic-ctn {
+.swiper-pagination {
   position: relative;
-  width: 100vw;
-  height: 300px;
-  margin-top: 15vh;
+  margin-top: 13px;
+  .swiper-pagination-bullet {
+    width: 11px;
+    height: 11px;
+    margin: 10px;
+    background-color: $ICAF_GRAY;
+    opacity: 0.2;
+    
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $ICAF_YELLOW;
+    opacity: 1;
+  }
+  @media screen and (max-width: 768px) {
+    .slide-content {
+      margin: 0 10px;
+    }
+    .swiper-navBtn {
+      display: none;
+    }
+  }
 }
-
-.pic-ctn>img {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 100px);
-  opacity: 0;
-  animation: display 12s infinite;
-}
-
-img:nth-child(2) {
-  animation-delay: 2s;
-}
-
-img:nth-child(3) {
-  animation-delay: 4s;
-}
-
-img:nth-child(4) {
-  animation-delay: 6s;
-}
-
-img:nth-child(5) {
-  animation-delay: 8s;
-}
-
-img:nth-child(6) {
-  animation-delay: 10s;
-}
-
-img:nth-child(7) {
-  animation-delay: 12s;
 }
