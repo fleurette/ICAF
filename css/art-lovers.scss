@@ -25,7 +25,7 @@
 
 .two-images {
     display: grid;
-    grid-template-columns: repeat(2, 513px);
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 35px;
     grid-template-rows: 280px 28px;
     row-gap: 15px;
